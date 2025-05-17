@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz App</title>
     <script src="https://cdn.tailwindcss.com"></script>
-     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body class="bg-gray-100 flex items-center justify-center h-screen">
 
@@ -20,23 +21,23 @@
 
     <!-- Quiz Content -->
     <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md text-center hidden" id="quiz-container">
-        <h1 class="text-2xl font-bold mb-4">Capitals Quiz</h1>
+        <h1 class="text-2xl font-bold mb-4">History Quiz</h1>
 
         <div id="quiz">
             <p id="question" class="text-lg font-medium mb-4"></p>
-            <div id="options" class="space-y-2 mb-4"></div>
+            <div id="options" class="space-y-2 mb-4"></div>            
             <button id="next-btn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 hidden">Next</button>
         </div>
 
         <div id="result" class="hidden">
             <h2 class="text-xl font-semibold mb-2">Your Score: <span id="score"></span></h2>
             <p id="participant-display" class="text-lg font-medium mb-4"></p>
-             <canvas id="score-chart" width="400" height="200" class="mx-auto my-4"></canvas>
+            <canvas id="score-chart" width="400" height="200" class="mx-auto my-4"></canvas>
             <button id="retry-btn" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Retry Quiz</button>
         </div>
     </div>
 
     <script src="script1.js"></script>
-    <script src="capital.js"></script>
+    <script src="history.js"></script>
 </body>
 </html>

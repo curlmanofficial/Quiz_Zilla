@@ -1,5 +1,3 @@
-
-
 let currentQuestion = 0;
 let score = 0;
 let participantName = "";
@@ -66,6 +64,38 @@ function endQuiz() {
     resultEl.classList.remove("hidden");
     scoreEl.textContent = `${score} / ${questions.length}`;
     participantDisplay.textContent = `Participant: ${participantName}`;
+
+    // Render Chart.js bar chart
+    const ctx = document.getElementById('score-chart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Correct', 'Incorrect'],
+            datasets: [{
+                label: 'Quiz Score',
+                data: [score, questions.length - score],
+                backgroundColor: ['#4ade80', '#f87171'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    precision: 0,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            }
+        }
+    });
 }
 
 retryBtn.onclick = () => {
@@ -78,7 +108,6 @@ retryBtn.onclick = () => {
 
 nextBtn.onclick = nextQuestion;
 
-// Handle Start Quiz button click
 startQuizBtn.onclick = () => {
     participantName = participantNameInput.value.trim();
     if (!participantName) {
@@ -91,7 +120,6 @@ startQuizBtn.onclick = () => {
     showQuestion();
 };
 
-// Show the name input modal on page load
 window.onload = () => {
     nameModal.classList.remove("hidden");
 };
